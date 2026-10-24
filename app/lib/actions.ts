@@ -2,8 +2,12 @@
 import { neon } from "@neondatabase/serverless";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-const sql = neon(process.env.POSTGRES_URL);
+const postgresUrl = process.env.POSTGRES_URL;
 
+if (!postgresUrl) {
+  throw new Error("POSTGRES_URL environment variable is not defined.");
+}
+const sql = neon(postgresUrl);
 import { z } from "zod";
 
 const FormSchema = z.object({
