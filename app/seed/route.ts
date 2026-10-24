@@ -3,7 +3,7 @@ import { neon } from "@neondatabase/serverless";
 
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
 
-const sql = neon(process.env.POSTGRES_URL!);
+const sql = neon(process.env.POSTGRES_URL);
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;

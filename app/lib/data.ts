@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import {
   CustomerField,
   CustomersTableType,
@@ -9,7 +10,7 @@ import {
 import { formatCurrency } from "./utils";
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.POSTGRES_URL!);
+const sql = neon(process.env.POSTGRES_URL);
 
 export async function fetchRevenue() {
   try {
@@ -157,6 +158,8 @@ export async function fetchInvoiceById(id: string) {
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
+
+    console.log("Fetched invoice by ID:", invoice);
 
     return invoice[0];
   } catch (error) {

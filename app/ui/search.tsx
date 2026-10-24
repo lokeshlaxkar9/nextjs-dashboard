@@ -9,10 +9,15 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
+  console.log(
+    "Search component rendered with searchParams:",
+    searchParams?.toString(),
+  );
+
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const term = event.target.value;
-      console.log("Search term:", term);
+      console.log("Search term:", term, "Search params:", searchParams);
       const params = new URLSearchParams(searchParams);
       if (term) {
         params.set("query", term);
