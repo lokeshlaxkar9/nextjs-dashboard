@@ -21,9 +21,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
       const params = new URLSearchParams(searchParams);
       if (term) {
         params.set("query", term);
+        params.set("page", "1"); // Reset to the first page on new search
       } else {
-        params.delete("query");
+        params.delete("query"); // Reset to the first page on clear search
       }
+      console.log("Updated search params:", params.toString());
       replace(`${pathname}?${params.toString()}`);
     },
     300,

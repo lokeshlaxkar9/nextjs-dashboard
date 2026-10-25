@@ -11,6 +11,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   ]);
 
   if (!invoice) {
+    console.log("Invoice not found for ID:", id);
     notFound();
   }
 
