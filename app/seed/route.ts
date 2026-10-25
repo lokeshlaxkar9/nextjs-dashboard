@@ -5,10 +5,7 @@ import { invoices, customers, revenue, users } from "../lib/placeholder-data";
 
 const postgresUrl = process.env.POSTGRES_URL;
 
-if (!postgresUrl) {
-  throw new Error("POSTGRES_URL environment variable is not defined.");
-}
-const sql = neon(postgresUrl);
+const sql = neon(postgresUrl!);
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;

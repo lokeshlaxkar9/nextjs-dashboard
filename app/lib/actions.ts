@@ -4,10 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 const postgresUrl = process.env.POSTGRES_URL;
 
-if (!postgresUrl) {
-  throw new Error("POSTGRES_URL environment variable is not defined.");
-}
-const sql = neon(postgresUrl);
+const sql = neon(postgresUrl!);
 import { z } from "zod";
 
 const FormSchema = z.object({

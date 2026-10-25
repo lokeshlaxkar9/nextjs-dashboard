@@ -11,10 +11,7 @@ import { formatCurrency } from "./utils";
 import { neon } from "@neondatabase/serverless";
 const postgresUrl = process.env.POSTGRES_URL;
 
-if (!postgresUrl) {
-  throw new Error("POSTGRES_URL environment variable is not defined.");
-}
-const sql = neon(postgresUrl);
+const sql = neon(postgresUrl!);
 
 export async function fetchRevenue() {
   try {
