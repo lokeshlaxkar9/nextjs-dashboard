@@ -1,3 +1,4 @@
+"use server";
 import { neon } from "@neondatabase/serverless";
 
 const postgresUrl = process.env.POSTGRES_URL;
