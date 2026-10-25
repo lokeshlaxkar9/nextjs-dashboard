@@ -7,7 +7,7 @@ import type { User } from "@/app/lib/definitions";
 import bcrypt from "bcryptjs";
 import postgres from "postgres";
 import { neon } from "@neondatabase/serverless";
-const postgresUrl = process.env.POSTGRES_URL;
+const postgresUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 
 const sql = neon(postgresUrl!);
 

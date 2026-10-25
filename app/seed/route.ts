@@ -4,7 +4,7 @@ import { neon } from "@neondatabase/serverless";
 
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
 
-const postgresUrl = process.env.POSTGRES_URL;
+const postgresUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 
 const sql = neon(postgresUrl!);
 

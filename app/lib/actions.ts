@@ -4,7 +4,7 @@ import { neon } from "@neondatabase/serverless";
 import { AuthError } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-const postgresUrl = process.env.POSTGRES_URL;
+const postgresUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 
 const sql = neon(postgresUrl!);
 import { z } from "zod";
